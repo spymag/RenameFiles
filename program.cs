@@ -13,6 +13,7 @@ namespace RenameFilesInFolder
         {
             string dirpath = @"C:\Users\spyros.magripis\Pictures\LOS_rainbow";
             string backupDir = dirpath + @"\backup";
+            int incrementValue = 2;
             Directory.CreateDirectory(backupDir);
             int exitValue = 9; // make room before this picture
             DirectoryInfo d = new DirectoryInfo(dirpath);
@@ -29,7 +30,7 @@ namespace RenameFilesInFolder
             }
             foreach (FileInfo f in infos.Reverse())          
             {
-                File.Move(f.FullName, f.FullName.ToString().Replace((fCount-flag).ToString(), (fCount-flag+1).ToString()));
+                File.Move(f.FullName, f.FullName.ToString().Replace((fCount - flag).ToString(), (fCount - flag + incrementValue).ToString()));
                 flag += 1;
                 if (fCount-flag==exitValue-2)
                 {
